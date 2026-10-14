@@ -12,6 +12,9 @@
     "dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "lint": "biome lint --error-on-warnings",
+    "format": "biome format --write",
+    "check-types": "tsc --noEmit",
     "fonts:sync": "mkdir -p src/shared/data && cp ../../templates/base/node_modules/next/dist/compiled/@next/font/dist/google/font-data.json src/shared/data/google-fonts.json"
   },
   "dependencies": {
