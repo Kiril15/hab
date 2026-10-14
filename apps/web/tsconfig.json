@@ -1,28 +1,27 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
-  "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "strictNullChecks": true,
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/shared/*": ["./src/shared/*"],
-      "@/views/*": ["./src/views/*"],
-      "@/features/*": ["./src/features/*"],
-      "@/widgets/*": ["./src/widgets/*"],
-    }
-  },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "next-env.d.ts",
-    "next.config.js",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+	"extends": "@repo/typescript-config/nextjs.json",
+	"compilerOptions": {
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"strictNullChecks": true,
+		"paths": {
+			"@/*": ["./src/*"],
+			"@/shared/*": ["./src/shared/*"],
+			"@/views/*": ["./src/views/*"],
+			"@/features/*": ["./src/features/*"],
+			"@/widgets/*": ["./src/widgets/*"]
+		}
+	},
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		"next-env.d.ts",
+		"next.config.ts",
+		".next/types/**/*.ts",
+		"src/app/providers/Providers.tsx"
+	],
+	"exclude": ["node_modules"]
 }
