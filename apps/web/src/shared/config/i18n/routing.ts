@@ -1,5 +1,5 @@
-import { DEFAULT_LOCALE, LOCALE_COOKIE, LOCALES } from "@/shared/consts";
 import { defineRouting } from "next-intl/routing";
+import { DEFAULT_LOCALE, LOCALE_COOKIE, LOCALES } from "@/shared/consts";
 
 export const routing = defineRouting({
 	locales: LOCALES,

@@ -3,7 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { catchError } from "@/shared/lib/error.util";
+import { catchError } from "@/shared/lib/errors/catch-error";
 
 export const QueryProvider = ({ children }: { children: React.ReactNode }) => {
 	const [queryClient] = useState(

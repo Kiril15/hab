@@ -1,3 +1,5 @@
+import { Home } from "@/views/home";
+
 export default function Page() {
-	return <section></section>;
+	return <Home />;
 }
