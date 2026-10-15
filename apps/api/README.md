@@ -33,7 +33,6 @@ Create `apps/api/.env.local`:
 | `pnpm build` | Compile to `dist/` |
 | `pnpm start:prod` | Run the compiled build |
 | `pnpm start:debug` | Start with the debugger attached |
-| `pnpm fonts:sync` | Refresh the Google Fonts list (see [Fonts](#fonts)) |
 
 ## API
 
@@ -116,8 +115,7 @@ src/
 └── shared/
     ├── consts/         template paths, ignore list
     ├── helpers/        code stubs for generated files
-    ├── utils/          pure, domain-agnostic functions
-    └── data/           google-fonts.json
+    └── utils/          pure, domain-agnostic functions
 ```
 
 **Request flow**
@@ -145,12 +143,12 @@ Builders render template files by replacing placeholders:
 
 ## Fonts
 
-The list of allowed fonts is `src/shared/data/google-fonts.json`, copied from `next/font` in the template. It must match the Next.js version used by `templates/base`; otherwise a font could pass validation and still fail to build in the generated project.
+Font data lives in the shared `@repo/fonts` package (`packages/fonts`), which both the API and the web app use. The list is copied from `next/font` in the template and must match the Next.js version used by `templates/base`; otherwise a font could pass validation and still fail to build in the generated project.
 
 After upgrading `next` in the template:
 
 ```bash
-pnpm --filter api fonts:sync
+pnpm --filter @repo/fonts fonts:sync
 ```
 
-The registry is loaded once at startup and looked up by key, so validation does not scan the list per request.
+The data is loaded once and looked up by key, so validation does not scan the list per request.

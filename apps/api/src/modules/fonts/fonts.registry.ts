@@ -1,24 +1,18 @@
 import { Injectable } from "@nestjs/common";
-import fontData from '../../shared/data/google-fonts.json'
-import type { FontLoaderOptions, FontStyle, GoogleFontData } from "./types";
+import { type GoogleFontData, getFont, isFontAvailable } from "@repo/fonts";
+import type { FontLoaderOptions, FontStyle } from "./types";
 
 @Injectable()
 export class FontRegistry {
-    private readonly fonts = new Map<string, GoogleFontData>(
-        Object.entries(fontData as Record<string, GoogleFontData>)
-    )
-
     get(family: string): GoogleFontData | undefined {
-        return this.fonts.get(family)
+        return getFont(family)
     }
 
     isAvailable(family: string, style: FontStyle, subset: string): boolean {
-        const font = this.get(family)
-
-        return !!font && font.styles.includes(style) && font.subsets.includes(subset)
+        return isFontAvailable(family, style, subset)
     }
 
-    // "Open Sans" → "Open_Sans" 
+    // "Open Sans" → "Open_Sans"
     toImportName(family: string): string {
         return family.replaceAll(' ', '_')
     }

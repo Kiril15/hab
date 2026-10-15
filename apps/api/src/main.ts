@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { NestExpressApplication } from '@nestjs/platform-express';
+import { type NestExpressApplication } from '@nestjs/platform-express';
 import { ValidationPipe } from "@nestjs/common"
 import { useContainer } from 'class-validator';
 import helmet from 'helmet';
@@ -12,7 +12,8 @@ async function bootstrap() {
 
   app.enableCors({
     origin: process.env.CLIENT_URL?.split(","),
-    credentials: true
+    credentials: true,
+    exposedHeaders: ["Content-Disposition"]
   })
 
   useContainer(

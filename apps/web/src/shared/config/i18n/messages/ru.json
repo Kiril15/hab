@@ -1,1 +1,133 @@
-{}
+{
+	"Home": {
+		"badge": "Генератор Next.js-проектов",
+		"title": "Готовое Next.js-приложение за минуту",
+		"subtitle": "Опишите проект, выберите страницы, цвета и шрифты — получите zip-архив с Tailwind, Biome и вашими токенами дизайна."
+	},
+	"GenerateProject": {
+		"progress": "Шаг {current} из {total}",
+		"back": "Назад",
+		"next": "Далее",
+		"submit": "Сгенерировать проект",
+		"success": "Проект сгенерирован — загрузка началась",
+		"steps": {
+			"project": {
+				"title": "Проект",
+				"description": "Основные данные для package.json."
+			},
+			"pages": {
+				"title": "Страницы",
+				"description": "Маршруты, которые появятся в App Router."
+			},
+			"dependencies": {
+				"title": "Зависимости",
+				"description": "Дополнительные npm-пакеты в package.json."
+			},
+			"theme": {
+				"title": "Тема",
+				"description": "Цвета станут токенами Tailwind, например bg-primary."
+			},
+			"fonts": {
+				"title": "Шрифты",
+				"description": "Google Fonts через next/font."
+			}
+		},
+		"project": {
+			"projectName": {
+				"label": "Название проекта",
+				"placeholder": "my-app",
+				"hint": "Латиница, от 3 до 50 символов."
+			},
+			"projectDesc": {
+				"label": "Описание",
+				"placeholder": "Landing page for my product"
+			},
+			"author": {
+				"label": "Автор",
+				"placeholder": "John Doe"
+			}
+		},
+		"pages": {
+			"label": "Добавить страницу",
+			"placeholder": "about-us",
+			"hint": "Нажмите Enter, чтобы добавить. Главная страница / есть всегда.",
+			"add": "Добавить страницу",
+			"remove": "Удалить /{page}"
+		},
+		"dependencies": {
+			"dependencies": "Зависимости",
+			"devDependencies": "Dev-зависимости",
+			"name": "Название пакета",
+			"version": "Версия",
+			"add": "Добавить",
+			"remove": "Удалить пакет",
+			"empty": "Пакеты не добавлены",
+			"searchPlaceholder": "Поиск npm-пакетов",
+			"typeMore": "Введите минимум 2 символа",
+			"noResults": "Пакеты не найдены",
+			"presets": {
+				"title": "Быстрое добавление",
+				"added": "Добавлено",
+				"items": {
+					"forms": "Формы",
+					"animation": "Анимации",
+					"icons": "Иконки",
+					"data": "Загрузка данных"
+				}
+			}
+		},
+		"theme": {
+			"colors": {
+				"background": "Фон",
+				"foreground": "Текст",
+				"primary": "Основной",
+				"primaryForeground": "Текст на основном",
+				"secondary": "Вторичный",
+				"secondaryForeground": "Текст на вторичном",
+				"muted": "Приглушённый",
+				"mutedForeground": "Приглушённый текст",
+				"accent": "Акцент",
+				"border": "Граница",
+				"destructive": "Опасное действие"
+			},
+			"preview": {
+				"badge": "Новое",
+				"title": "Предпросмотр",
+				"text": "Так палитра выглядит вместе.",
+				"muted": "Приглушённая поверхность для карточек и подсказок.",
+				"primary": "Основная",
+				"secondary": "Вторичная",
+				"destructive": "Удалить"
+			}
+		},
+		"fonts": {
+			"primary": "Шрифт текста",
+			"secondary": "Шрифт заголовков",
+			"useSecondary": "Отдельный шрифт для заголовков",
+			"family": "Шрифт",
+			"style": "Начертание",
+			"subset": "Набор символов",
+			"styles": {
+				"normal": "Обычный",
+				"italic": "Курсив"
+			},
+			"searchPlaceholder": "Поиск по Google Fonts",
+			"noResults": "Шрифты не найдены",
+			"subsetPlaceholder": "Поиск набора символов",
+			"noSubsets": "Наборы символов не найдены"
+		},
+		"errors": {
+			"required": "Обязательное поле",
+			"min3": "Минимум 3 символа",
+			"max50": "Не больше 50 символов",
+			"max200": "Не больше 200 символов",
+			"latinOnly": "Только латинские буквы",
+			"hex": "Цвет в формате #fff или #ffffff",
+			"npmName": "Некорректное имя npm-пакета",
+			"semver": "Версия в формате 1.2.3 или ^1.2.3",
+			"pageSlug": "Только латиница, цифры и дефис",
+			"pageDuplicate": "Такая страница уже добавлена",
+			"dependencyDuplicate": "Каждый пакет можно добавить только один раз"
+		}
+	}
+}

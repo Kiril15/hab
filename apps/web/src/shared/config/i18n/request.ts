@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { getRequestConfig } from "next-intl/server";
-import { routing } from "./routing";
 import { LOCALE_COOKIE } from "@/shared/consts";
+import { routing } from "./routing";
 
 export default getRequestConfig(async () => {
 	const store = await cookies();

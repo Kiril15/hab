@@ -1,0 +1,1 @@
+export const MIN_PACKAGE_QUERY_LENGTH = 2;

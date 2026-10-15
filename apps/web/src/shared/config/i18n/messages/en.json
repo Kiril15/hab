@@ -1,1 +1,133 @@
-{}
+{
+	"Home": {
+		"badge": "Next.js project generator",
+		"title": "Ship a configured Next.js app in a minute",
+		"subtitle": "Describe the project, pick pages, colors and fonts — get a ready-to-run zip with Tailwind, Biome and your design tokens."
+	},
+	"GenerateProject": {
+		"progress": "Step {current} of {total}",
+		"back": "Back",
+		"next": "Continue",
+		"submit": "Generate project",
+		"success": "Project generated — download started",
+		"steps": {
+			"project": {
+				"title": "Project",
+				"description": "Basic details that go into package.json."
+			},
+			"pages": {
+				"title": "Pages",
+				"description": "Routes to scaffold in the App Router."
+			},
+			"dependencies": {
+				"title": "Dependencies",
+				"description": "Extra npm packages to add to package.json."
+			},
+			"theme": {
+				"title": "Theme",
+				"description": "Colors become Tailwind tokens like bg-primary."
+			},
+			"fonts": {
+				"title": "Fonts",
+				"description": "Google Fonts loaded via next/font."
+			}
+		},
+		"project": {
+			"projectName": {
+				"label": "Project name",
+				"placeholder": "my-app",
+				"hint": "Latin letters, 3–50 characters."
+			},
+			"projectDesc": {
+				"label": "Description",
+				"placeholder": "A landing page for my product"
+			},
+			"author": {
+				"label": "Author",
+				"placeholder": "John Doe"
+			}
+		},
+		"pages": {
+			"label": "Add page",
+			"placeholder": "about-us",
+			"hint": "Press Enter to add. The home page / is always included.",
+			"add": "Add page",
+			"remove": "Remove /{page}"
+		},
+		"dependencies": {
+			"dependencies": "Dependencies",
+			"devDependencies": "Dev dependencies",
+			"name": "Package name",
+			"version": "Version",
+			"add": "Add",
+			"remove": "Remove package",
+			"empty": "No packages added",
+			"searchPlaceholder": "Search npm packages",
+			"typeMore": "Type at least 2 characters",
+			"noResults": "No packages found",
+			"presets": {
+				"title": "Quick add",
+				"added": "Added",
+				"items": {
+					"forms": "Forms",
+					"animation": "Animations",
+					"icons": "Icons",
+					"data": "Data fetching"
+				}
+			}
+		},
+		"theme": {
+			"colors": {
+				"background": "Background",
+				"foreground": "Foreground",
+				"primary": "Primary",
+				"primaryForeground": "Primary text",
+				"secondary": "Secondary",
+				"secondaryForeground": "Secondary text",
+				"muted": "Muted",
+				"mutedForeground": "Muted text",
+				"accent": "Accent",
+				"border": "Border",
+				"destructive": "Destructive"
+			},
+			"preview": {
+				"badge": "New",
+				"title": "Live preview",
+				"text": "This is how your palette looks together.",
+				"muted": "Muted surface for cards and hints.",
+				"primary": "Primary",
+				"secondary": "Secondary",
+				"destructive": "Delete"
+			}
+		},
+		"fonts": {
+			"primary": "Body font",
+			"secondary": "Heading font",
+			"useSecondary": "Use a separate font for headings",
+			"family": "Font",
+			"style": "Style",
+			"subset": "Character set",
+			"styles": {
+				"normal": "Normal",
+				"italic": "Italic"
+			},
+			"searchPlaceholder": "Search Google Fonts",
+			"noResults": "No fonts found",
+			"subsetPlaceholder": "Search character sets",
+			"noSubsets": "No character sets found"
+		},
+		"errors": {
+			"required": "Required field",
+			"min3": "At least 3 characters",
+			"max50": "No more than 50 characters",
+			"max200": "No more than 200 characters",
+			"latinOnly": "Latin letters only",
+			"hex": "Use a hex color like #fff or #ffffff",
+			"npmName": "Invalid npm package name",
+			"semver": "Use a version like 1.2.3 or ^1.2.3",
+			"pageSlug": "Only latin letters, digits and dashes",
+			"pageDuplicate": "This page is already added",
+			"dependencyDuplicate": "Each package can be added only once"
+		}
+	}
+}
