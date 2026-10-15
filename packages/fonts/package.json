@@ -1,0 +1,27 @@
+{
+	"name": "@repo/fonts",
+	"version": "0.0.0",
+	"private": true,
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch --preserveWatchOutput",
+		"check-types": "tsc --noEmit",
+		"lint": "biome lint --error-on-warnings",
+		"format": "biome format --write",
+		"fonts:sync": "cp ../../templates/base/node_modules/next/dist/compiled/@next/font/dist/google/font-data.json src/data/google-fonts.json"
+	},
+	"dependencies": {
+		"@repo/types": "workspace:*"
+	},
+	"devDependencies": {
+		"@repo/typescript-config": "workspace:*",
+		"@types/node": "^24.0.0",
+		"typescript": "7.0.2"
+	}
+}
