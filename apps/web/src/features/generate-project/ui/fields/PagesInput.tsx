@@ -8,6 +8,7 @@ import { useController } from "react-hook-form";
 import { Button } from "@/shared/ui/button";
 import { Field } from "@/shared/ui/field";
 import { Input } from "@/shared/ui/input";
+import { MAX_PAGES } from "../../config";
 import { type GenerateProjectFormValues, PAGE_SLUG, useErrorMessage } from "../../model";
 
 const toSlug = (value: string) => value.trim().toLowerCase().replace(/\s+/g, "-");
@@ -27,6 +28,7 @@ export function PagesInput() {
 
 		if (!PAGE_SLUG.test(slug)) return setDraftError("pageSlug");
 		if (field.value.includes(slug)) return setDraftError("pageDuplicate");
+		if (field.value.length >= MAX_PAGES) return setDraftError("pagesMax");
 
 		field.onChange([...field.value, slug]);
 		setDraft("");

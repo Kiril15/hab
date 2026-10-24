@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { Controller, type UseFieldArrayReturn, useFormContext } from "react-hook-form";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
+import { MAX_DEPENDENCIES } from "../../config";
 import { type GenerateProjectFormValues, useErrorMessage } from "../../model";
 import { PackageCombobox } from "./PackageCombobox";
 
@@ -38,6 +39,7 @@ export function DependencyList({ name, fieldArray }: DependencyListProps) {
 				<Button
 					variant="ghost"
 					size="sm"
+					disabled={fields.length >= MAX_DEPENDENCIES}
 					onClick={() => append({ name: "", version: "" }, { shouldFocus: true })}
 				>
 					<Plus className="size-4" />

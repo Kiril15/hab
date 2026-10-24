@@ -174,7 +174,10 @@
 			"localeTag": "Use a language code like en or pt-BR",
 			"localesRequired": "Add at least one language",
 			"localeDuplicate": "This language is already added",
-			"defaultLocale": "Pick one of the added languages"
+			"defaultLocale": "Pick one of the added languages",
+			"pagesMax": "No more than 20 pages",
+			"dependenciesMax": "No more than 50 packages in one list",
+			"localesMax": "No more than 10 languages"
 		}
 	}
 }

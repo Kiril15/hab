@@ -9,7 +9,7 @@ import { toCanonicalLocale } from "@/shared/lib/locale";
 import { Button } from "@/shared/ui/button";
 import { Field } from "@/shared/ui/field";
 import { Input } from "@/shared/ui/input";
-import { LOCALE_SUGGESTIONS } from "../../config";
+import { LOCALE_SUGGESTIONS, MAX_LOCALES } from "../../config";
 import {
 	type GenerateProjectFormValues,
 	LOCALE_TAG,
@@ -28,6 +28,7 @@ export function LocalesInput() {
 	const [draft, setDraft] = useState("");
 	const [draftError, setDraftError] = useState<string>();
 
+	const canAdd = field.value.length < MAX_LOCALES;
 	const suggestions = LOCALE_SUGGESTIONS.filter((locale) => !field.value.includes(locale));
 
 	const addLocale = (value: string) => {
@@ -36,6 +37,7 @@ export function LocalesInput() {
 		const locale = toCanonicalLocale(value);
 		if (!locale || !LOCALE_TAG.test(locale)) return setDraftError("localeTag");
 		if (field.value.includes(locale)) return setDraftError("localeDuplicate");
+		if (!canAdd) return setDraftError("localesMax");
 
 		field.onChange([...field.value, locale]);
 		if (!getValues("options.i18n.defaultLocale")) {
@@ -128,7 +130,7 @@ export function LocalesInput() {
 				</AnimatePresence>
 			</motion.ul>
 
-			{suggestions.length > 0 && (
+			{canAdd && suggestions.length > 0 && (
 				<div className="flex flex-wrap items-center gap-2">
 					<span className="text-xs text-muted-foreground">{t("suggestions")}</span>
 					{suggestions.map((locale) => (
