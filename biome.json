@@ -7,20 +7,20 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!**/public", "!!**/dist", "!!**/build"]
+    "includes": ["**", "!**/public", "!!**/dist", "!!**/build", "!**/templates"]
   },
   "formatter": {
     "enabled": true,
     "lineWidth": 100,
     "attributePosition": "multiline",
-    "includes": ["**", "!**/public", "!!**/dist", "!!**/build"]
+    "includes": ["**", "!**/public", "!!**/dist", "!!**/build", "!**/templates"]
   },
   "linter": {
     "enabled": true,
     "rules": {
       "preset": "recommended"
     },
-    "includes": ["**", "!**/public", "!!**/dist", "!!**/build"],
+    "includes": ["**", "!**/public", "!!**/dist", "!!**/build", "!**/templates"],
     "domains": {
       "react": "recommended",
       "next": "recommended"
