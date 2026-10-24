@@ -1,21 +1,22 @@
-import { Module } from '@nestjs/common';
-import { GeneratorService } from './generator.service';
-import { GeneratorController } from './generator.controller';
-import { TemplatesModule } from '../templates/templates.module';
-import { FontsModule } from '../fonts/fonts.module';
-import { I18nBuilder, LayoutBuilder, PagesBuilder, TemplateFilesBuilder } from './builders';
-import { PackageJsonTransformer } from './transformers';
+import { Module } from "@nestjs/common";
+import { FontsModule } from "../fonts/fonts.module";
+import { TemplatesModule } from "../templates/templates.module";
+import { GeneratorController } from "./generator.controller";
+import { GeneratorService } from "./generator.service";
+import { I18nMessagesBuilder } from "./options";
+import { LayoutBuilder, PagesBuilder, TemplateFilesBuilder } from "./project/builders";
+import { PackageJsonTransformer } from "./project/transformers";
 
 @Module({
-  imports: [TemplatesModule, FontsModule],
-  controllers: [GeneratorController],
-  providers: [
-    GeneratorService,
-    TemplateFilesBuilder,
-    LayoutBuilder,
-    I18nBuilder,
-    PagesBuilder,
-    PackageJsonTransformer,
-  ],
+	imports: [TemplatesModule, FontsModule],
+	controllers: [GeneratorController],
+	providers: [
+		GeneratorService,
+		TemplateFilesBuilder,
+		LayoutBuilder,
+		PagesBuilder,
+		I18nMessagesBuilder,
+		PackageJsonTransformer,
+	],
 })
 export class GeneratorModule {}

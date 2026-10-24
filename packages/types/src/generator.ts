@@ -7,17 +7,17 @@ export interface PackageDependency {
 	version: string;
 }
 
-export interface PackageInfo {
+export interface ProjectInfo {
 	projectName: string;
 	projectDesc: string;
 	author: string;
-	dependencies?: PackageDependency[];
-	devDependencies?: PackageDependency[];
+	siteUrl?: string;
 }
 
 export interface GenerateProjectRequest {
-	packageJson: PackageInfo;
-	siteUrl?: string;
+	project: ProjectInfo;
+	dependencies: PackageDependency[];
+	devDependencies: PackageDependency[];
 	pages: string[];
 	theme: Theme;
 	fonts: Fonts;

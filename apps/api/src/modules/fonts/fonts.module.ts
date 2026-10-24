@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { FontRegistry } from './fonts.registry';
-import { IsAvailableFontConstraint } from './validators';
+import { Module } from "@nestjs/common";
+import { FontsRegistry } from "./fonts.registry";
+import { IsAvailableFontConstraint } from "./validators";
 
 @Module({
-  providers: [FontRegistry, IsAvailableFontConstraint],
-  exports: [FontRegistry, IsAvailableFontConstraint],
+	providers: [FontsRegistry, IsAvailableFontConstraint],
+	exports: [FontsRegistry, IsAvailableFontConstraint],
 })
 export class FontsModule {}

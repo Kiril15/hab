@@ -10,16 +10,17 @@ export function toGenerateRequest({
 	fonts,
 	options,
 }: GenerateProjectFormValues): GenerateProjectRequest {
-	const { siteUrl, ...packageInfo } = project;
+	const { siteUrl, ...info } = project;
 
 	return {
-		packageJson: { ...packageInfo, dependencies, devDependencies },
-		...(siteUrl ? { siteUrl } : {}),
+		project: { ...info, ...(siteUrl ? { siteUrl } : {}) },
+		dependencies,
+		devDependencies,
 		pages,
 		theme,
-		projectOptions: options.i18n ? { i18n: options.i18n } : {},
 		fonts: fonts.secondary
 			? { primary: fonts.primary, secondary: fonts.secondary }
 			: { primary: fonts.primary },
+		projectOptions: options.i18n ? { i18n: options.i18n } : {},
 	};
 }
