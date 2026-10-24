@@ -4,30 +4,24 @@ import { type NestExpressApplication } from '@nestjs/platform-express';
 import { ValidationPipe } from "@nestjs/common"
 import { useContainer } from 'class-validator';
 import helmet from 'helmet';
+import { ConfigService } from '@nestjs/config';
+import { getCorsConfig, getValidationPipeConfig } from './config/common';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(
     AppModule
   );
 
-  app.enableCors({
-    origin: process.env.CLIENT_URL?.split(","),
-    credentials: true,
-    exposedHeaders: ["Content-Disposition"]
-  })
+  const config = app.get(ConfigService)
+
+  app.enableCors(getCorsConfig(config))
 
   useContainer(
     app.select(AppModule), { fallbackOnErrors: true }
   );
 
   app.use(helmet())
-  app.useGlobalPipes(
-    new ValidationPipe({
-        whitelist: true,
-        forbidNonWhitelisted: true,
-        transform: true,            
-    }),
-);
+  app.useGlobalPipes(new ValidationPipe(getValidationPipeConfig()));
 
   await app.listen(process.env.PORT ?? 3000);
 }
