@@ -7,4 +7,5 @@ export * from "./use-font-option";
 export * from "./use-font-search";
 export * from "./use-form-steps";
 export * from "./use-generate-project";
+export * from "./use-locale-name";
 export * from "./use-package-search";

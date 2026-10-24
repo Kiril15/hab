@@ -3,7 +3,7 @@ import type { GenerateProjectFormValues } from "../model/types";
 export const DEFAULT_FONT = { family: "Geist", style: "normal", subset: "latin" } as const;
 
 export const FORM_DEFAULTS: GenerateProjectFormValues = {
-	project: { projectName: "", projectDesc: "", author: "" },
+	project: { projectName: "", projectDesc: "", author: "", siteUrl: "" },
 	pages: [],
 	dependencies: [],
 	devDependencies: [],
@@ -21,4 +21,5 @@ export const FORM_DEFAULTS: GenerateProjectFormValues = {
 		destructive: "#dc2626",
 	},
 	fonts: { primary: { ...DEFAULT_FONT }, secondary: null },
+	options: { i18n: null },
 };

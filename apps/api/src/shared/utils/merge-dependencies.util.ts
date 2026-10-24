@@ -1,4 +1,5 @@
 import { BadRequestException } from '@nestjs/common';
+import type { PackageJson } from '../types';
 
 const FORBIDDEN_DEPENDENCY_NAMES = new Set(['__proto__', 'constructor', 'prototype']);
 
@@ -12,7 +13,7 @@ export interface MergeDependenciesResult {
 }
 
 export function mergeDependencies(
-    json: Record<string, Record<string, string>>,
+    json: PackageJson,
     field: 'dependencies' | 'devDependencies',
     packages: PackageVariable[],
 ): MergeDependenciesResult {

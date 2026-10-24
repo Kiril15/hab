@@ -1,1 +1,1 @@
-export * from './is-available-font.validator'
+export * from "./is-available-font";
