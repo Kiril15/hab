@@ -72,6 +72,24 @@ export function ProjectStep() {
 					/>
 				</Field>
 			</motion.div>
+
+			<motion.div variants={fadeUp}>
+				<Field
+					label={t("siteUrl.label")}
+					htmlFor="siteUrl"
+					hint={t("siteUrl.hint")}
+					error={errorMessage(fieldErrors?.siteUrl?.message)}
+				>
+					<Input
+						id="siteUrl"
+						inputMode="url"
+						placeholder={t("siteUrl.placeholder")}
+						autoComplete="url"
+						aria-invalid={Boolean(fieldErrors?.siteUrl)}
+						{...register("project.siteUrl")}
+					/>
+				</Field>
+			</motion.div>
 		</motion.div>
 	);
 }

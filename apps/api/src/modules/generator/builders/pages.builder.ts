@@ -1,26 +1,43 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { toPascalCase } from '../../../shared/utils';
-import { buildPageStub, buildViewIndex, buildViewMetadata, buildViewStub } from '../../../shared/helpers';
-import type { GenerateProjectDto } from '../dto';
-import type { ArchiveEntry } from '../types';
-import type { ProjectFileBuilder } from './project-file-builder.interface';
+import { Injectable, Logger } from "@nestjs/common";
+import {
+	buildLocalePageStub,
+	buildPageStub,
+	buildViewIndex,
+	buildViewMetadata,
+	buildViewStub,
+} from "../../../shared/helpers";
+import { toPascalCase } from "../../../shared/utils";
+import { HOME_VIEW } from "../config";
+import type { GenerateProjectDto } from "../dto";
+import { getAppDir } from "../helpers";
+import type { ArchiveEntry, PageRoute, ProjectFileBuilder } from "../types";
 
 @Injectable()
 export class PagesBuilder implements ProjectFileBuilder {
-    private readonly logger = new Logger(PagesBuilder.name);
+	private readonly logger = new Logger(PagesBuilder.name);
 
-    build({ pages }: GenerateProjectDto): ArchiveEntry[] {
-        this.logger.log(`Generating pages: ${pages.join(', ')}`);
+	build({ pages, projectOptions }: GenerateProjectDto): ArchiveEntry[] {
+		const appDir = getAppDir(projectOptions);
+		const buildPage = projectOptions.i18n ? buildLocalePageStub : buildPageStub;
+		const routes: PageRoute[] = [
+			{ name: HOME_VIEW.name, routeDir: appDir, viewDir: HOME_VIEW.dir },
+			...pages.map((page) => ({ name: page, routeDir: `${appDir}/${page}`, viewDir: page })),
+		];
 
-        return pages.flatMap((page) => {
-            const componentName = `${toPascalCase(page)}Page`;
+		this.logger.log(
+			`Generating pages in ${appDir}: /, ${pages.map((page) => `/${page}`).join(", ")}`,
+		);
 
-            return [
-                { name: `src/app/${page}/page.tsx`, content: buildPageStub(componentName, page) },
-                { name: `src/views/${page}/index.ts`, content: buildViewIndex(componentName, page) },
-                { name: `src/views/${page}/${componentName}.tsx`, content: buildViewStub(componentName) },
-                { name: `src/views/${page}/${page}.metadata.tsx`, content: buildViewMetadata(page) },
-            ];
-        });
-    }
+		return routes.flatMap(({ name, routeDir, viewDir }) => {
+			const componentName = `${toPascalCase(name)}Page`;
+			const viewPath = `src/views/${viewDir}`;
+
+			return [
+				{ name: `${routeDir}/page.tsx`, content: buildPage(componentName, viewDir) },
+				{ name: `${viewPath}/index.ts`, content: buildViewIndex(componentName, name) },
+				{ name: `${viewPath}/${componentName}.tsx`, content: buildViewStub(componentName) },
+				{ name: `${viewPath}/${name}.metadata.tsx`, content: buildViewMetadata(name) },
+			];
+		});
+	}
 }

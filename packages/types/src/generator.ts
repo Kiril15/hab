@@ -1,4 +1,5 @@
 import type { Fonts } from "./fonts";
+import type { ProjectOptions } from "./options";
 import type { Theme } from "./theme";
 
 export interface PackageDependency {
@@ -16,7 +17,9 @@ export interface PackageInfo {
 
 export interface GenerateProjectRequest {
 	packageJson: PackageInfo;
+	siteUrl?: string;
 	pages: string[];
 	theme: Theme;
 	fonts: Fonts;
+	projectOptions: ProjectOptions;
 }

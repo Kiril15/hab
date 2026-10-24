@@ -30,6 +30,10 @@
 			"fonts": {
 				"title": "Fonts",
 				"description": "Google Fonts loaded via next/font."
+			},
+			"options": {
+				"title": "Features",
+				"description": "Optional modules wired into the project."
 			}
 		},
 		"project": {
@@ -45,6 +49,11 @@
 			"author": {
 				"label": "Author",
 				"placeholder": "John Doe"
+			},
+			"siteUrl": {
+				"label": "Site URL",
+				"placeholder": "https://example.com",
+				"hint": "Optional. Goes to .env.example and SITE_URL, localhost if empty."
 			}
 		},
 		"pages": {
@@ -116,6 +125,39 @@
 			"subsetPlaceholder": "Search character sets",
 			"noSubsets": "No character sets found"
 		},
+		"options": {
+			"i18n": {
+				"title": "Internationalization",
+				"description": "next-intl with locale routing, message files and static pages per language.",
+				"locales": {
+					"label": "Languages",
+					"placeholder": "Language code, e.g. de or pt-BR",
+					"hint": "Press Enter to add.",
+					"add": "Add language",
+					"remove": "Remove {locale}",
+					"suggestions": "Popular:"
+				},
+				"defaultLocale": {
+					"label": "Default language",
+					"hint": "Used when the visitor's language isn't supported."
+				},
+				"prefix": {
+					"label": "Language in URL",
+					"as-needed": {
+						"label": "Except default",
+						"example": "/about · /ru/about"
+					},
+					"always": {
+						"label": "Always",
+						"example": "/en/about · /ru/about"
+					},
+					"never": {
+						"label": "Never",
+						"example": "/about · from cookie"
+					}
+				}
+			}
+		},
 		"errors": {
 			"required": "Required field",
 			"min3": "At least 3 characters",
@@ -127,7 +169,12 @@
 			"semver": "Use a version like 1.2.3 or ^1.2.3",
 			"pageSlug": "Only latin letters, digits and dashes",
 			"pageDuplicate": "This page is already added",
-			"dependencyDuplicate": "Each package can be added only once"
+			"dependencyDuplicate": "Each package can be added only once",
+			"siteUrl": "Use a domain like https://example.com",
+			"localeTag": "Use a language code like en or pt-BR",
+			"localesRequired": "Add at least one language",
+			"localeDuplicate": "This language is already added",
+			"defaultLocale": "Pick one of the added languages"
 		}
 	}
 }

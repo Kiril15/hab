@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import type { FormStepId } from "../../config";
 import { DependenciesStep } from "./DependenciesStep";
 import { FontsStep } from "./FontsStep";
+import { OptionsStep } from "./OptionsStep";
 import { PagesStep } from "./PagesStep";
 import { ProjectStep } from "./ProjectStep";
 import { ThemeStep } from "./ThemeStep";
@@ -12,4 +13,5 @@ export const STEP_COMPONENTS: Record<FormStepId, ComponentType> = {
 	dependencies: DependenciesStep,
 	theme: ThemeStep,
 	fonts: FontsStep,
+	options: OptionsStep,
 };

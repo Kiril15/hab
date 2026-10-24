@@ -1,4 +1,4 @@
 export interface ArchiveEntry {
-    name: string;
-    content: string;
+	name: string;
+	content: string | Buffer;
 }

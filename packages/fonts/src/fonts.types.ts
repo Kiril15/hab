@@ -19,3 +19,10 @@ export interface FontOption {
 	styles: FontStyle[];
 	subsets: string[];
 }
+
+export interface FontLoaderOptions {
+	variable: string;
+	weight?: string[];
+	style: FontStyle[];
+	subsets: string[];
+}

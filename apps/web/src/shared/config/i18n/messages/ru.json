@@ -30,6 +30,10 @@
 			"fonts": {
 				"title": "Шрифты",
 				"description": "Google Fonts через next/font."
+			},
+			"options": {
+				"title": "Возможности",
+				"description": "Дополнительные модули, подключённые в проект."
 			}
 		},
 		"project": {
@@ -45,6 +49,11 @@
 			"author": {
 				"label": "Автор",
 				"placeholder": "John Doe"
+			},
+			"siteUrl": {
+				"label": "Адрес сайта",
+				"placeholder": "https://example.com",
+				"hint": "Необязательно. Попадёт в .env.example и SITE_URL, по умолчанию localhost."
 			}
 		},
 		"pages": {
@@ -116,6 +125,39 @@
 			"subsetPlaceholder": "Поиск набора символов",
 			"noSubsets": "Наборы символов не найдены"
 		},
+		"options": {
+			"i18n": {
+				"title": "Мультиязычность",
+				"description": "next-intl: маршруты по языкам, файлы переводов и статические страницы для каждого языка.",
+				"locales": {
+					"label": "Языки",
+					"placeholder": "Код языка, например de или pt-BR",
+					"hint": "Enter — добавить.",
+					"add": "Добавить язык",
+					"remove": "Убрать {locale}",
+					"suggestions": "Популярные:"
+				},
+				"defaultLocale": {
+					"label": "Язык по умолчанию",
+					"hint": "Используется, если язык посетителя не поддерживается."
+				},
+				"prefix": {
+					"label": "Язык в адресе",
+					"as-needed": {
+						"label": "Кроме основного",
+						"example": "/about · /ru/about"
+					},
+					"always": {
+						"label": "Всегда",
+						"example": "/en/about · /ru/about"
+					},
+					"never": {
+						"label": "Никогда",
+						"example": "/about · из cookie"
+					}
+				}
+			}
+		},
 		"errors": {
 			"required": "Обязательное поле",
 			"min3": "Минимум 3 символа",
@@ -127,7 +169,12 @@
 			"semver": "Версия в формате 1.2.3 или ^1.2.3",
 			"pageSlug": "Только латиница, цифры и дефис",
 			"pageDuplicate": "Такая страница уже добавлена",
-			"dependencyDuplicate": "Каждый пакет можно добавить только один раз"
+			"dependencyDuplicate": "Каждый пакет можно добавить только один раз",
+			"siteUrl": "Домен в формате https://example.com",
+			"localeTag": "Код языка вида en или pt-BR",
+			"localesRequired": "Добавьте хотя бы один язык",
+			"localeDuplicate": "Этот язык уже добавлен",
+			"defaultLocale": "Выберите один из добавленных языков"
 		}
 	}
 }
